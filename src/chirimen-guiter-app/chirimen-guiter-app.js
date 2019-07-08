@@ -1,4 +1,5 @@
 import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
+import './chirimen-guiter-fret.js';
 
 /**
  * @customElement
@@ -12,7 +13,7 @@ class ChirimenGuiterApp extends PolymerElement {
           display: block;
         }
       </style>
-      <h2>Hello [[prop1]]!</h2>
+      <chirimen-guiter-fret></chirimen-guiter-fret>
     `;
   }
   static get properties() {
