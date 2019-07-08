@@ -1,6 +1,7 @@
 import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
 import {GestureEventListeners} from '@polymer/polymer/lib/mixins/gesture-event-listeners.js';
 import * as Gestures from '@polymer/polymer/lib/utils/gestures.js';
+import '@polymer/paper-ripple/paper-ripple.js';
 
 /**
  * @customElement
@@ -15,8 +16,33 @@ class ChirimenGuiterPicking extends GestureEventListeners(PolymerElement) {
           background-color: black;
           width: 100%;
           height: 260px;
+          position: relative;
+        }
+        #pad {
+          position: absolute;
+          display: block;
+          width: 100%;
+          height: 260px;
+          top: 0;
+          left: 0;
+        }
+        #ripples {
+        }
+        .ripple {
+          height: 65px;
+          position: relative;
+        }
+        paper-ripple {
+          color: white;
         }
       </style>
+      <div id="ripples">
+        <div class="ripple"><paper-ripple></paper-ripple></div>
+        <div class="ripple"><paper-ripple></paper-ripple></div>
+        <div class="ripple"><paper-ripple></paper-ripple></div>
+        <div class="ripple"><paper-ripple></paper-ripple></div>
+      </div>
+      <div id="pad"></pad>
     `;
   }
   static get properties() {
@@ -44,6 +70,8 @@ class ChirimenGuiterPicking extends GestureEventListeners(PolymerElement) {
         }
         if (this.value != position) {
           this.value = position;
+          const rippes = this.shadowRoot.querySelectorAll('paper-ripple');
+          rippes[position].simulatedRipple();
 //          console.log('pos', this.value);
         }
         break;
@@ -51,9 +79,6 @@ class ChirimenGuiterPicking extends GestureEventListeners(PolymerElement) {
         this.value = -1;
         break;
     }
-  }
-  handleTap(e) {
-    this.count++;
   }
   ready() {
     super.ready();
