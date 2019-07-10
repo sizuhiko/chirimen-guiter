@@ -53,6 +53,22 @@ class ChirimenGuiterPicking extends GestureEventListeners(PolymerElement) {
       }
     };
   }
+  constructor(){
+    super();
+    Gestures.addListener(this, 'down', this.handleDown.bind(this));
+    Gestures.addListener(this, 'up', this.handleUp.bind(this));
+  }
+  disconnectedCallback() {
+    super.disconnectedCallback();
+    Gestures.removeListener(this, 'down', this.handleDown.bind(this));
+    Gestures.removeListener(this, 'up', this.handleUp.bind(this));
+  }
+  handleDown(e) {
+    this.value = -1;
+  }
+  handleUp(e) {
+    this.value = -1;
+  }
   handleTrack(e) {
     const position = parseInt((e.touches ? e.touches[0].clientY : e.y) / (260 / 4));
     if (position < 0 || position > 3) {
