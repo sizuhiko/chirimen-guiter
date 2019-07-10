@@ -66,6 +66,7 @@ class ChirimenGuiterApp extends PolymerElement {
   }
 
   play(newValue, oldValue) {
+    if (newValue == null) return;
     this.player.queueWaveTable(this.audioContext, this.audioContext.destination, this.selectedPreset, this.audioContext.currentTime + 0, pitch[newValue], 0.4);
   }
 

@@ -154,6 +154,11 @@ class ChirimenGuiterFret extends PolymerElement {
 
     if (targets.length > 0) {
       console.log(targets[targets.length - 1].value);
+
+      if (this.value == targets[targets.length - 1].value) {
+        this.value = null;
+      }
+
       this.value = targets[targets.length - 1].value;
     }
   }
