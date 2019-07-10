@@ -1,18 +1,35 @@
-import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
-import '@polymer/paper-slider/paper-slider.js';
+import { html, PolymerElement } from "../../node_modules/@polymer/polymer/polymer-element.js";
+import "../../node_modules/@polymer/paper-slider/paper-slider.js";
 import './chirimen-guiter-scale.js';
 import './chirimen-guiter-picking.js';
-
 const codes = {
-  C:    [{position: 1, key: 0}, {position: 3, key: 1}],
-  CM7:  [{position: 3, key: 1}],
-  C7:   [{position: 1, key: 0}, {position: 3, key: 1}, {position: 2, key: 2}],
+  C: [{
+    position: 1,
+    key: 0
+  }, {
+    position: 3,
+    key: 1
+  }],
+  CM7: [{
+    position: 3,
+    key: 1
+  }],
+  C7: [{
+    position: 1,
+    key: 0
+  }, {
+    position: 3,
+    key: 1
+  }, {
+    position: 2,
+    key: 2
+  }]
 };
-
 /**
  * @customElement
  * @polymer
  */
+
 class ChirimenGuiterFret extends PolymerElement {
   static get template() {
     return html`
@@ -118,6 +135,7 @@ class ChirimenGuiterFret extends PolymerElement {
       </table>
     `;
   }
+
   static get properties() {
     return {
       position: {
@@ -130,13 +148,16 @@ class ChirimenGuiterFret extends PolymerElement {
       }
     };
   }
+
   playPosition(newValue, oldValue) {
     const targets = this.shadowRoot.querySelectorAll(`tr[data-position="${newValue}"] chirimen-guiter-scale[hold]`);
+
     if (targets.length > 0) {
       console.log(targets[targets.length - 1].value);
       this.value = targets[targets.length - 1].value;
     }
   }
+
 }
 
 window.customElements.define('chirimen-guiter-fret', ChirimenGuiterFret);
