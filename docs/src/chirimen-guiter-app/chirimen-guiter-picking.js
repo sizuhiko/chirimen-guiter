@@ -76,7 +76,7 @@ class ChirimenGuiterPicking extends GestureEventListeners(PolymerElement) {
   }
 
   handleTrack(e) {
-    const position = parseInt((e.touches ? e.touches[0].clientY : e.y) / (260 / 4));
+    const position = parseInt((e.changedTouches ? e.changedTouches[0].clientY : e.y) / (260 / 4));
 
     if (position < 0 || position > 3) {
       this.value = -1;
