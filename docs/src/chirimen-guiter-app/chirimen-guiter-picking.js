@@ -73,6 +73,7 @@ class ChirimenGuiterPicking extends GestureEventListeners(PolymerElement) {
   ready() {
     super.ready();
     this.shadowRoot.addEventListener('mousemove', this.handleTrack.bind(this));
+    this.shadowRoot.addEventListener('touchmove', this.handleTrack.bind(this));
     this.value = -1;
   }
 
