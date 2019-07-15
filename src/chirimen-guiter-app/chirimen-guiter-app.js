@@ -71,6 +71,44 @@ class ChirimenGuiterApp extends PolymerElement {
     this.player.queueWaveTable(this.audioContext, this.audioContext.destination
         , this.selectedPreset, this.audioContext.currentTime + 0, pitch[newValue], 0.4);
   }
+
+
+  touchChanged(touches) {
+    console.log("タッチ", JSON.stringify(touches));
+//    const keyboard = this.shadowRoot.querySelectorAll('paper-ripple.keyboard');
+//
+//    touches.forEach((value, index) => {
+//      if (value) {
+//        keyboard[index].simulatedRipple();
+//        this.hz = this._fromPage(this.page)[index].hz;
+//        this.$.player.play();
+//      }
+//    });
+  }
+  gestureChanged(gesture) {
+    console.log("ジェスチャー", gesture);
+//    switch(gesture) {
+//      case 'up':
+//        this.shadowRoot.querySelector('paper-ripple.next').simulatedRipple();
+//        this.next();
+//        break;
+//      case 'down':
+//        this.shadowRoot.querySelector('paper-ripple.prev').simulatedRipple();
+//        this.prev();
+//        break;
+//      case 'forward':
+//        this.volume -= 10;
+//        break;
+//      case 'back':
+//        this.volume += 10;
+//        break;
+//    }
+  }
+
+  valueChanged(value) {
+    console.log("運指", value);
+  }
+
 }
 
 window.customElements.define('chirimen-guiter-app', ChirimenGuiterApp);

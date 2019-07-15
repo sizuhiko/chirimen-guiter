@@ -9,14 +9,40 @@
     <link rel="manifest" href="manifest.json">
 
     <script src="node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+    <script src="src/polyfill/polyfill.js"></script>
 
     <script type="module" src="src/chirimen-guiter-app/chirimen-guiter-app.js" crossorigin=""></script>
     <script src="https://surikov.github.io/webaudiofont/npm/dist/WebAudioFontPlayer.js"></script>
     <script src="https://surikov.github.io/webaudiofontdata/sound/0290_Aspirin_sf2_file.js"></script>
 
+    <script type="module" src="src/chirimen-guiter-app/web-i2c.js"></script>
+    <script type="module" src="src/chirimen-guiter-app/grove-gesture.js"></script>
+    <script type="module" src="src/chirimen-guiter-app/grove-touch.js"></script>
+    <script type="module" src="src/chirimen-guiter-app/chirimen-ads1015.js"></script>
+
   </head>
   <body>
     <chirimen-guiter-app></chirimen-guiter-app>
+
+    <web-i2c>
+      <grove-touch slave-address="0x5a"></grove-touch>
+      <grove-gesture slave-address="0x73"></grove-gesture>
+      <chirimen-ads1015 slave-address="0x48"></chirimen-ads1015>
+      <div slot="no-web-i2c">
+        このデバイスはCHIRIMENではありませんが、ギター演奏はお楽しみいただけます。
+      </div>
+    </web-i2c>
+
+    <script>document.querySelector('grove-touch').addEventListener('value-changed', e => {
+  document.querySelector('chirimen-guiter-app').touchChanged(e.detail.value);
+});
+document.querySelector('grove-gesture').addEventListener('value-changed', e => {
+  document.querySelector('chirimen-guiter-app').gestureChanged(e.detail.value);
+});
+document.querySelector('chirimen-ads1015').addEventListener('value-changed', e => {
+  document.querySelector('chirimen-guiter-app').valueChanged(e.detail.value);
+});</script>
+
   
 
 </body></html>
