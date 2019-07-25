@@ -84,23 +84,24 @@ class ChirimenGuiterApp extends PolymerElement {
     });
   }
   gestureChanged(gesture) {
-    console.log("ジェスチャー", gesture);
-//    switch(gesture) {
-//      case 'up':
-//        this.shadowRoot.querySelector('paper-ripple.next').simulatedRipple();
-//        this.next();
-//        break;
-//      case 'down':
-//        this.shadowRoot.querySelector('paper-ripple.prev').simulatedRipple();
-//        this.prev();
-//        break;
-//      case 'forward':
-//        this.volume -= 10;
-//        break;
-//      case 'back':
-//        this.volume += 10;
-//        break;
-//    }
+//    console.log("ジェスチャー", gesture);
+    const fret = this.shadowRoot.querySelector('chirimen-guiter-fret');
+    switch(gesture) {
+      case 'up':
+      case 'forward':
+      case 'right':
+        for(let i = 0; i <= 3; i++) {
+          fret.playPosition(index);
+        }
+        break;
+      case 'left':
+      case 'down':
+      case 'back':
+        for(let i = 3; i <= 0; i--) {
+          fret.playPosition(index);
+        }
+        break;
+    }
   }
 
   valueChanged(values) {
