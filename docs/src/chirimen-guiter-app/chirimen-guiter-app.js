@@ -102,7 +102,7 @@ class ChirimenGuiterApp extends PolymerElement {
   valueChanged(values) {
     console.log("運指", values);
     const fret = this.shadowRoot.querySelector('chirimen-guiter-fret');
-    fret.hold(values.filter(value => {
+    fret.hold(values.map(value => {
       if (value == 0) {
         return 0;
       }
