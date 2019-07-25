@@ -89,7 +89,7 @@ class ChirimenGuiterApp extends PolymerElement {
       case 'forward':
       case 'right':
         for (let i = 0; i <= 3; i++) {
-          fret.playPosition(index);
+          fret.playPosition(i);
         }
 
         break;
@@ -98,7 +98,7 @@ class ChirimenGuiterApp extends PolymerElement {
       case 'down':
       case 'back':
         for (let i = 3; i <= 0; i--) {
-          fret.playPosition(index);
+          fret.playPosition(i);
         }
 
         break;
