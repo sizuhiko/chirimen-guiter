@@ -71,7 +71,7 @@ class ChirimenGuiterApp extends PolymerElement {
   }
 
   touchChanged(touches) {
-    console.log("タッチ", JSON.stringify(touches));
+    //    console.log("タッチ", JSON.stringify(touches));
     const fret = this.shadowRoot.querySelector('chirimen-guiter-fret');
     touches.forEach((value, index) => {
       if (value) {
@@ -100,9 +100,9 @@ class ChirimenGuiterApp extends PolymerElement {
   }
 
   valueChanged(values) {
-    console.log("運指", values);
+    //    console.log("運指", values);
     const fret = this.shadowRoot.querySelector('chirimen-guiter-fret');
-    fret.hold(values.map(value => {
+    fret.hold(values.reverse().map(value => {
       if (value == 0) {
         return 0;
       }
