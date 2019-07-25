@@ -50,13 +50,6 @@ class ChirimenGuiterFret extends PolymerElement {
           padding: 0;
         }
         tr td:nth-child(1) {
-          background-color: white;
-          width: 6em;
-          border: none;
-          font-size: 60%;
-          user-select: none;
-        }
-        tr td:nth-child(2) {
           background-color: rgb(109, 81, 23);
           color: white;
           width: 2em;
@@ -65,72 +58,60 @@ class ChirimenGuiterFret extends PolymerElement {
           padding: 0;
           width: 12em;
         }
-        tr:nth-child(5) td {
-          background-color: white;
-          border: none;
-          user-select: none;
-        }
       </style>
       <table>
         <tr data-position="0">
-          <td>Shift + Ctrl</td>
-          <td><chirimen-guiter-scale value="E3" shift-key ctrl-key hold></chirimen-guiter-scale></td>
-          <td><chirimen-guiter-scale value="F3" shift-key ctrl-key key="0"></chirimen-guiter-scale></td>
-          <td><chirimen-guiter-scale value="#F3" shift-key ctrl-key key="1"></chirimen-guiter-scale></td>
-          <td><chirimen-guiter-scale value="G3" shift-key ctrl-key key="2"></chirimen-guiter-scale></td>
-          <td><chirimen-guiter-scale value="#G3" shift-key ctrl-key key="3"></chirimen-guiter-scale></td>
-          <td><chirimen-guiter-scale value="A3" shift-key ctrl-key key="4"></chirimen-guiter-scale></td>
-          <td><chirimen-guiter-scale value="#A3" shift-key ctrl-key key="5"></chirimen-guiter-scale></td>
-          <td><chirimen-guiter-scale value="B3" shift-key ctrl-key key="6"></chirimen-guiter-scale></td>
-          <td><chirimen-guiter-scale value="C4" shift-key ctrl-key key="7"></chirimen-guiter-scale></td>
-          <td><chirimen-guiter-scale value="#C4" shift-key ctrl-key key="8"></chirimen-guiter-scale></td>
-          <td><chirimen-guiter-scale value="D4" shift-key ctrl-key key="9"></chirimen-guiter-scale></td>
+          <td><chirimen-guiter-scale value="E3" hold></chirimen-guiter-scale></td>
+          <td><chirimen-guiter-scale value="F3" key="1"></chirimen-guiter-scale></td>
+          <td><chirimen-guiter-scale value="#F3" key="2"></chirimen-guiter-scale></td>
+          <td><chirimen-guiter-scale value="G3" key="3"></chirimen-guiter-scale></td>
+          <td><chirimen-guiter-scale value="#G3" key="4"></chirimen-guiter-scale></td>
+          <td><chirimen-guiter-scale value="A3" key="5"></chirimen-guiter-scale></td>
+          <td><chirimen-guiter-scale value="#A3" key="6"></chirimen-guiter-scale></td>
+          <td><chirimen-guiter-scale value="B3" key="7"></chirimen-guiter-scale></td>
+          <td><chirimen-guiter-scale value="C4" key="8"></chirimen-guiter-scale></td>
+          <td><chirimen-guiter-scale value="#C4" key="9"></chirimen-guiter-scale></td>
+          <td><chirimen-guiter-scale value="D4" key="0"></chirimen-guiter-scale></td>
           <td rowspan="4" id="picking"><chirimen-guiter-picking value="{{position}}"></chirimen-guiter-picking></td>
         </tr>
         <tr data-position="1">
-          <td>Ctrl</td>
-          <td><chirimen-guiter-scale value="B2" ctrl-key hold></chirimen-guiter-scale></td>
-          <td><chirimen-guiter-scale value="C3" ctrl-key key="0"></chirimen-guiter-scale></td>
-          <td><chirimen-guiter-scale value="#C3" ctrl-key key="1"></chirimen-guiter-scale></td>
-          <td><chirimen-guiter-scale value="D3" ctrl-key key="2"></chirimen-guiter-scale></td>
-          <td><chirimen-guiter-scale value="#D3" ctrl-key key="3"></chirimen-guiter-scale></td>
-          <td><chirimen-guiter-scale value="E3" ctrl-key key="4"></chirimen-guiter-scale></td>
-          <td><chirimen-guiter-scale value="F3" ctrl-key key="5"></chirimen-guiter-scale></td>
-          <td><chirimen-guiter-scale value="#F3" ctrl-key key="6"></chirimen-guiter-scale></td>
-          <td><chirimen-guiter-scale value="G3" ctrl-key key="7"></chirimen-guiter-scale></td>
-          <td><chirimen-guiter-scale value="#G3" ctrl-key key="8"></chirimen-guiter-scale></td>
-          <td><chirimen-guiter-scale value="A3" ctrl-key key="9"></chirimen-guiter-scale></td>
+          <td><chirimen-guiter-scale value="B2" hold></chirimen-guiter-scale></td>
+          <td><chirimen-guiter-scale value="C3" key="q"></chirimen-guiter-scale></td>
+          <td><chirimen-guiter-scale value="#C3" key="w"></chirimen-guiter-scale></td>
+          <td><chirimen-guiter-scale value="D3" key="e"></chirimen-guiter-scale></td>
+          <td><chirimen-guiter-scale value="#D3" key="r"></chirimen-guiter-scale></td>
+          <td><chirimen-guiter-scale value="E3" key="t"></chirimen-guiter-scale></td>
+          <td><chirimen-guiter-scale value="F3" key="y"></chirimen-guiter-scale></td>
+          <td><chirimen-guiter-scale value="#F3" key="u"></chirimen-guiter-scale></td>
+          <td><chirimen-guiter-scale value="G3" key="i"></chirimen-guiter-scale></td>
+          <td><chirimen-guiter-scale value="#G3" key="o"></chirimen-guiter-scale></td>
+          <td><chirimen-guiter-scale value="A3" key="p"></chirimen-guiter-scale></td>
         </tr>
         <tr data-position="2">
-          <td>Shift</td>
-          <td><chirimen-guiter-scale value="G2" shift-key hold></chirimen-guiter-scale></td>
-          <td><chirimen-guiter-scale value="#G2" shift-key key="0"></chirimen-guiter-scale></td>
-          <td><chirimen-guiter-scale value="A2" shift-key key="1"></chirimen-guiter-scale></td>
-          <td><chirimen-guiter-scale value="#A2" shift-key key="2"></chirimen-guiter-scale></td>
-          <td><chirimen-guiter-scale value="B2" shift-key key="3"></chirimen-guiter-scale></td>
-          <td><chirimen-guiter-scale value="C3" shift-key key="4"></chirimen-guiter-scale></td>
-          <td><chirimen-guiter-scale value="#C3" shift-key key="5"></chirimen-guiter-scale></td>
-          <td><chirimen-guiter-scale value="D3" shift-key key="6"></chirimen-guiter-scale></td>
-          <td><chirimen-guiter-scale value="#D3" shift-key key="7"></chirimen-guiter-scale></td>
-          <td><chirimen-guiter-scale value="E3" shift-key key="8"></chirimen-guiter-scale></td>
-          <td><chirimen-guiter-scale value="F3" shift-key key="9"></chirimen-guiter-scale></td>
+          <td><chirimen-guiter-scale value="G2" hold></chirimen-guiter-scale></td>
+          <td><chirimen-guiter-scale value="#G2" key="a"></chirimen-guiter-scale></td>
+          <td><chirimen-guiter-scale value="A2" key="s"></chirimen-guiter-scale></td>
+          <td><chirimen-guiter-scale value="#A2" key="d"></chirimen-guiter-scale></td>
+          <td><chirimen-guiter-scale value="B2" key="f"></chirimen-guiter-scale></td>
+          <td><chirimen-guiter-scale value="C3" key="g"></chirimen-guiter-scale></td>
+          <td><chirimen-guiter-scale value="#C3" key="h"></chirimen-guiter-scale></td>
+          <td><chirimen-guiter-scale value="D3" key="j"></chirimen-guiter-scale></td>
+          <td><chirimen-guiter-scale value="#D3" key="k"></chirimen-guiter-scale></td>
+          <td><chirimen-guiter-scale value="E3" key="l"></chirimen-guiter-scale></td>
+          <td><chirimen-guiter-scale value="F3" key=";"></chirimen-guiter-scale></td>
         </tr>
         <tr data-position="3">
-          <td></td>
           <td><chirimen-guiter-scale value="D2" hold></chirimen-guiter-scale></td>
-          <td><chirimen-guiter-scale value="#D2" key="0"></chirimen-guiter-scale></td>
-          <td><chirimen-guiter-scale value="E2" key="1"></chirimen-guiter-scale></td>
-          <td><chirimen-guiter-scale value="F2" key="2"></chirimen-guiter-scale></td>
-          <td><chirimen-guiter-scale value="#F2" key="3"></chirimen-guiter-scale></td>
-          <td><chirimen-guiter-scale value="G2" key="4"></chirimen-guiter-scale></td>
-          <td><chirimen-guiter-scale value="#G2" key="5"></chirimen-guiter-scale></td>
-          <td><chirimen-guiter-scale value="A2" key="6"></chirimen-guiter-scale></td>
-          <td><chirimen-guiter-scale value="#A2" key="7"></chirimen-guiter-scale></td>
-          <td><chirimen-guiter-scale value="B2" key="8"></chirimen-guiter-scale></td>
-          <td><chirimen-guiter-scale value="C3" key="9"></chirimen-guiter-scale></td>
-        </tr>
-        <tr>
-          <td></td><td></td><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td></td>
+          <td><chirimen-guiter-scale value="#D2" key="z"></chirimen-guiter-scale></td>
+          <td><chirimen-guiter-scale value="E2" key="x"></chirimen-guiter-scale></td>
+          <td><chirimen-guiter-scale value="F2" key="c"></chirimen-guiter-scale></td>
+          <td><chirimen-guiter-scale value="#F2" key="v"></chirimen-guiter-scale></td>
+          <td><chirimen-guiter-scale value="G2" key="b"></chirimen-guiter-scale></td>
+          <td><chirimen-guiter-scale value="#G2" key="n"></chirimen-guiter-scale></td>
+          <td><chirimen-guiter-scale value="A2" key="m"></chirimen-guiter-scale></td>
+          <td><chirimen-guiter-scale value="#A2" key=","></chirimen-guiter-scale></td>
+          <td><chirimen-guiter-scale value="B2" key="."></chirimen-guiter-scale></td>
+          <td><chirimen-guiter-scale value="C3" key="/"></chirimen-guiter-scale></td>
         </tr>
       </table>
     `;
@@ -161,6 +142,16 @@ class ChirimenGuiterFret extends PolymerElement {
 
       this.value = targets[targets.length - 1].value;
     }
+  }
+
+  hold(newValues) {
+    newValues.forEach((value, index) => {
+      const targets = this.shadowRoot.querySelectorAll(`tr[data-position="${index}"] chirimen-guiter-scale`);
+
+      for (let i = 1; i < targets.length; i++) {
+        targets[i].hold = value == i;
+      }
+    });
   }
 
 }

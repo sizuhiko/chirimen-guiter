@@ -71,15 +71,13 @@ class ChirimenGuiterApp extends PolymerElement {
   }
 
   touchChanged(touches) {
-    console.log("タッチ", JSON.stringify(touches)); //    const keyboard = this.shadowRoot.querySelectorAll('paper-ripple.keyboard');
-    //
-    //    touches.forEach((value, index) => {
-    //      if (value) {
-    //        keyboard[index].simulatedRipple();
-    //        this.hz = this._fromPage(this.page)[index].hz;
-    //        this.$.player.play();
-    //      }
-    //    });
+    console.log("タッチ", JSON.stringify(touches));
+    const fret = this.shadowRoot.querySelector('chirimen-guiter-fret');
+    touches.forEach((value, index) => {
+      if (value) {
+        fret.playPosition(index);
+      }
+    });
   }
 
   gestureChanged(gesture) {
@@ -101,8 +99,40 @@ class ChirimenGuiterApp extends PolymerElement {
     //    }
   }
 
-  valueChanged(value) {
-    console.log("運指", value);
+  valueChanged(values) {
+    console.log("運指", values);
+    const fret = this.shadowRoot.querySelector('chirimen-guiter-fret');
+    fret.hold(values.filter(value => {
+      if (value == 0) {
+        return 0;
+      }
+
+      if (value < 91) {
+        return 1;
+      }
+
+      if (value < 145) {
+        return 2;
+      }
+
+      if (value < 202) {
+        return 3;
+      }
+
+      if (value < 280) {
+        return 4;
+      }
+
+      if (value < 415) {
+        return 5;
+      }
+
+      if (value < 672) {
+        return 6;
+      }
+
+      return 7;
+    }));
   }
 
 }

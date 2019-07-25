@@ -20,12 +20,19 @@ class ChirimenGuiterScale extends GestureEventListeners(PolymerElement) {
           justify-content: center;
           align-items: center;
         }
+        #key {
+          font-size: 50%;
+          font-weight: bold;
+          display: block;
+        }
         paper-ripple {
           color: red;
         }
       </style>
       <div id="outer" style="position: relative">
-        <div id="inner">{{value}}</div>
+        <div id="inner">{{value}}
+          <div id="key">{{key}}</div>
+        </div>
         <paper-ripple id="ripple" animating="{{hold}}"></paper-ripple>
       </div>
     `;
@@ -34,9 +41,7 @@ class ChirimenGuiterScale extends GestureEventListeners(PolymerElement) {
   static get properties() {
     return {
       value: String,
-      ctrlKey: Boolean,
-      shiftKey: Boolean,
-      key: Number,
+      key: String,
       hold: {
         type: Boolean,
         reflectToAttribute: true
@@ -59,34 +64,17 @@ class ChirimenGuiterScale extends GestureEventListeners(PolymerElement) {
   }
 
   handleKeydown(e) {
-    if (e.metaKey) {
-      console.log(e.key); // Win/Cmd キーが押されているときはコードプレイ
-
-      this.hold = false;
-      return;
-    }
-
-    if (!e.code.startsWith('Digit')) {
-      // 数字キーのみ対応
-      this.hold = false;
-      return;
-    }
-
-    const key = e.code.substring('Digit'.length);
-
-    if (e.ctrlKey == this.ctrlKey && e.shiftKey == this.shiftKey && this.key == key) {
+    if (this.key == e.key) {
       if (!this.hold) {
         this.$.ripple.uiDownAction(null);
       }
 
       this.hold = true;
-    } else {
-      this.hold = false;
     }
   }
 
   handleKeyup(e) {
-    if (this.hold) {
+    if (this.key == e.key) {
       this.$.ripple.uiUpAction(null);
     }
 
