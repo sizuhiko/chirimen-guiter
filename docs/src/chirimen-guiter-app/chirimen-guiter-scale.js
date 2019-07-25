@@ -89,6 +89,18 @@ class ChirimenGuiterScale extends GestureEventListeners(PolymerElement) {
     this.hold = false;
   }
 
+  setHold(value) {
+    if (this.hold != value) {
+      this.hold = value;
+
+      if (this.hold) {
+        this.$.ripple.uiDownAction(null);
+      } else {
+        this.$.ripple.uiUpAction(null);
+      }
+    }
+  }
+
   ready() {
     super.ready();
     this.ctrlKey = !!this.ctrlKey;

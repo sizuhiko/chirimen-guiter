@@ -125,7 +125,7 @@ class ChirimenGuiterFret extends PolymerElement {
     newValues.forEach((value, index) => {
       const targets = this.shadowRoot.querySelectorAll(`tr[data-position="${index}"] chirimen-guiter-scale`);
       for (let i = 1; i < targets.length; i++) {
-        targets[i].hold = value == i;
+        targets[i].setHold(value == i);
       }
     });
   }
