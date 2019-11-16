@@ -90,7 +90,7 @@ class GroveGesture extends WebI2cSensorElement {
         break;
     }
 
-    this._setValue(res);
+    this._setValue(res, true);
   }
 
 }

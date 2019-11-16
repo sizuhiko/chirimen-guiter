@@ -100,8 +100,9 @@ export class WebI2cSensorElement extends PolymerElement {
    *
    * This method change value and notify changes as `value-changed` event.
    */
-  _setValue(value) {
+  _setValue(value, forceNotify) {
     this.set('value', value);
+    if(forceNotify) this.notifyPath('value');
   }
 
   /**

@@ -107,8 +107,9 @@ export class WebI2cSensorElement extends PolymerElement {
    */
 
 
-  _setValue(value) {
+  _setValue(value, forceNotify) {
     this.set('value', value);
+    if (forceNotify) this.notifyPath('value');
   }
   /**
    * Initialize I2C Slave device.
