@@ -62,10 +62,15 @@ export class WebI2cSensorElement extends PolymerElement {
     if (!this.port || !this.slaveAddress) return;
 
     this.port.open(this.slaveAddress).then(async (i2cSlave) => {
-      this._i2cSlave = i2cSlave;
-      await this.init();
-      if (this._autoRead) {
-        this._read();
+      try {
+        this._i2cSlave = i2cSlave;
+        await this.init();
+        if (this._autoRead) {
+          this._read();
+        }
+      }
+      catch (err) {
+        console.warn('INIT ERROR', err);
       }
     });
   }
@@ -78,10 +83,14 @@ export class WebI2cSensorElement extends PolymerElement {
    */
   _read() {
     setInterval(async () => {
-      if(this._i2cSlave == null){
-        console.error("i2cSlave Address does'nt yet open!");
-      }else{
-        await this.read();
+      try {
+        if(this._i2cSlave == null){
+          console.error("i2cSlave Address does'nt yet open!");
+        }else{
+          await this.read();
+        }
+      } catch (err) {
+        console.warn('READ ERROR', err);
       }
     }, this.interval);
   }
